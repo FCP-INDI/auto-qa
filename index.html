@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Auto-QA : Automated quality assurance measuring for brain imaging data" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Auto-QA</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/FCP-INDI/auto-qa">View on GitHub</a>
+
+          <h1 id="project_title">Auto-QA</h1>
+          <h2 id="project_tagline">Automated quality assurance measuring for brain imaging data</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/FCP-INDI/auto-qa/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/FCP-INDI/auto-qa/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>We have assembled a diverse set of QA metrics for assessing the quality of MRI and fMRI data. Although the majority of measures have been proposed in the past, they have not been collected together in one easy to use software package. We first describe two sets of metrics that assess spatial and temporal quality of the signal. Then, we elaborate on the implementation of these metrics using our python software.</p>
+
+<h2>
+<a name="explanation" class="anchor" href="#explanation"><span class="octicon octicon-link"></span></a>Explanation</h2>
+
+<h3>
+<a name="spatial-metrics-smri-fmri" class="anchor" href="#spatial-metrics-smri-fmri"><span class="octicon octicon-link"></span></a>Spatial Metrics (sMRI, fMRI)</h3>
+
+<ul>
+<li>Signal-to-noise ratio (SNR). The mean within gray matter values divided by the standard deviation of the air values.</li>
+<li>Foreground to Background Energy Ratio (FBER)</li>
+<li>Entropy Focus Criteria (EFC). Shannons entropy is used to summarize the principal directions distribution, higher energy indicating the distribution is more uniform (i.e., less noisy).</li>
+<li>Smoothness of Voxels. The full-width half maximum of the spatial distribution of the image intensity values.</li>
+<li>Ghost to Signal Ratio (GSR) (only epi). A measure of the mean signal in the ‘ghost’ image (signal present outside the brain due to acquisition in the phase encoding direction) relative to mean signal within the brain.</li>
+<li>Artifact Detection (Qi1) (only structural).  The proportion of voxels with intensity corrupted by artifacts normalized by the number if voxels in the background.</li>
+<li>Contrast-to-noise ratio (CNR) (only structural). Calculated as the mean of the gray matter values minus the mean of the white matter values, divided by the standard deviation of the air values.</li>
+</ul><h3>
+<a name="temporal-metrics-fmri" class="anchor" href="#temporal-metrics-fmri"><span class="octicon octicon-link"></span></a>Temporal Metrics (fMRI)</h3>
+
+<ul>
+<li>Mean framewise displacement (FD). A measure of subject motion, which compares the motion between the current and previous volumes. This is calculated by summing the absolute value of displacement changes in the x, y and z directions and rotational changes about those three axes. The rotational changes are given distance values based on the changes across the surface of a 50mm radius sphere.</li>
+<li>Percent of volumes with FD greater than 0.2mm</li>
+<li>Standardized DVARS. The spatial standard deviation of the temporal derivative of the data, normalized by the temporal standard deviation and temporal autocorrelation.</li>
+<li>Outlier Detection. The mean fraction of outliers found in each volume using AFNI’s 3dTout, in other words the fraction of voxels with spikes in the data at each time-point.</li>
+<li>Median Distance Index. The mean distance (1 – spearman’s rho) between each time-point's volume and the median volume using AFNI’s 3dTqual.</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Auto-QA maintained by <a href="https://github.com/FCP-INDI">FCP-INDI</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
